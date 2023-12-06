@@ -1,0 +1,25 @@
+/* style.css */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* For all browsers */
+body {
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+}
+
+/* For Firefox */
+body {
+    scrollbar-width: thin;
+}
+
+/* For WebKit (Chrome, Safari) */
+body::-webkit-scrollbar {
+    width: 1px;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: transparent;
+}
