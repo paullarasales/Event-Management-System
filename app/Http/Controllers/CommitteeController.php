@@ -17,6 +17,7 @@ class CommitteeController extends Controller
 
     public function showEvent() {
 
+        // return view('committee.committee-event');
         return view('committee.committee-event');
     }
 

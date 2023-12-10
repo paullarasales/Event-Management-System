@@ -22,20 +22,15 @@
 <body class="font-poppins antialiased">
     <div class="relative h-full md:flex justify-between">
         <!-- Sidebar -->
-        <aside class="z-10 bg-background w-60 border-r-[3px] border-solid border-black-700 text-white px-2 py-4 absolute inset-y-0 left-0 md:relative transform -translate-x-full md:translate-x-0 transition ease-in-out-200 shadow-lg overflow-y-auto">
+        <aside class="z-10 bg-background w-52 border-r-[3px] border-solid border-black-700 text-white px-2 py-4 absolute inset-y-0 left-0 md:relative transform -translate-x-full md:translate-x-0 transition ease-in-out-200 shadow-lg overflow-y-auto">
             <!-- Logo -->
             <div class="flex items-center justify-between px-2 py-1">
                 <div class="flex gap-2 items-center">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
                         <path fill-rule="evenodd" d="M3 6a3 3 0 013-3h2.25a3 3 0 013 3v2.25a3 3 0 01-3 3H6a3 3 0 01-3-3V6zm9.75 0a3 3 0 013-3H18a3 3 0 013 3v2.25a3 3 0 01-3 3h-2.25a3 3 0 01-3-3V6zM3 15.75a3 3 0 013-3h2.25a3 3 0 013 3V18a3 3 0 01-3 3H6a3 3 0 01-3-3v-2.25zm9.75 0a3 3 0 013-3H18a3 3 0 013 3V18a3 3 0 01-3 3h-2.25a3 3 0 01-3-3v-2.25z" clip-rule="evenodd" />
                     </svg>                                             
-                    <span class="text-xl font-bold">Event Planner</span>
+                    <span class="text-2xl font-semibold">QuickScore</span>
                 </div>
-                <button class="inline-flex p-2 items-center justify-center rounded-md">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5M12 17.25h8.25" />
-                      </svg>                                          
-                </button>
             </div>
             <!-- Navigation -->
             <nav class="flex flex-col mt-3 p-5 gap-7">
@@ -65,7 +60,7 @@
                 <div class="mx-auto px-2 sm:px-6 lg:px-8">
                     <div class="relative flex items-center justify-between h-16 w-90">
                         <!-- Hello welcome back message -->
-                        <div class="text-2xl font-semibold">
+                        <div class="text-xl font-semibold">
                             {{ __('Committee Dashboard')}}
                         </div>
 

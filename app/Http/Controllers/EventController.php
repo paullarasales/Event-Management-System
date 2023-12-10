@@ -12,7 +12,6 @@ class EventController extends Controller
 {
     public function create(Request $request) {
         // dd($request->all());
-        // Save Event
         $event = new Event;
         $event->title = $request->input('title');
         $event->description = $request->input('description');
@@ -20,7 +19,6 @@ class EventController extends Controller
         $event->location = $request->input('location');
         $event->save();
 
-        // Save Judges
         $judges = [];
         foreach ($request->input('username') as $index => $judgename) {
             $judge = new Judge([

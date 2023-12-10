@@ -15,7 +15,10 @@ export default {
                 sans: ['Poppins', ...defaultTheme.fontFamily.sans],
             },
             colors: {
-                background:'#002244'
+                background: '#0000ff'
+            },
+            height: {
+                95: '95.333333%'
             }
         },
     },
