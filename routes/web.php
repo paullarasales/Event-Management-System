@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CommitteeController;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\JudgeDashboardController;
 
 
 /*
@@ -18,10 +19,11 @@ use App\Http\Controllers\EventController;
 |
 */
 
-Route::get('/', function() {
+Route::get('/login', function() {
     return view ('auth.login');
 });
 
+Route::get('/', [JudgeDashboardController::class, 'showLoginForm'])->name('judge.loginForm');
 
 
 Route::get('/testing', [AdminController::class, 'testing']);
@@ -59,4 +61,6 @@ Route::post('/committee/login', [CommitteeController::class, 'login']);
 Route::get('/committee/dashboard', [CommitteeController::class, 'dashboard'])->middleware(['auth', 'committee'])->name('committee.dashboard');
 // Route::get('/committee/home', [CommitteeController::class, 'overview'])->middleware(['auth'])->name('committee.home');
 
+Route::post('/judge/login', [JudgeDashboardController::class, 'judgeLogin'])->name('judge.login');
+Route::get('/judge/dashboard', [JudgeDashboardController::class, 'dashboard'])->name('judge.dashboard');
 require __DIR__.'/auth.php';

@@ -49,22 +49,19 @@
 
             <!-- Right side content (login form) -->
             <div class="flex items-center justify-center w-1/2 gap-10">
-                <form method="POST" action="{{ route('login') }}">
+                <form method="POST" action="{{ route('judge.login') }}">
                     @csrf
 
                     <div class="flex flex-col items-center justify-center w-96">
-                        <h1 class="text-3xl font-semibold">
+                        <h2 class="text-3xl font-semibold">
                             Sign in
-                        </h1>
-                        <h2 class="text-xl font-medium mt-2">
-                            Welcome Back Admin
                         </h2>
                     </div>
 
                     <div class="flex flex-col w-96 mt-4">
                         <!-- Email Address -->
-                        <label for="email" class="text-md font-medium">Email</label>
-                        <input type="email" id="email" name="email" class="outline-none border-white shadow-2xl" placeholder="Enter your email address" required>
+                        <label for="username" class="text-md font-medium">Username</label>
+                        <input type="text" id="username" name="username" class="outline-none border-white shadow-2xl" placeholder="Enter your username" required>
                     </div>
 
                     <div class="flex flex-col mt-4 w-96">

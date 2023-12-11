@@ -26,4 +26,8 @@ class Event extends Model
     public function contestants() {
         return $this->hasMany(Contestant::class);
     }
+
+    public function criteria() {
+        return $this->hasMany(Criteria::class);
+    }
 }

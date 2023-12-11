@@ -17,7 +17,19 @@ class Judge extends Authenticatable
         'password',
     ];
 
+    protected $casts = [
+        'password' => 'hashed'
+    ];
+
     public function criteria() {
         return $this->hasMany(Criteria::class);
+    }
+
+    public function event() {
+        return $this->belongsTo(Event::class);
+    }
+
+    public function contestants() {
+        return $this->hasMany(Contestant::class);
     }
 }
