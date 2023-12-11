@@ -1,17 +1,19 @@
 <x-committee-layout>
-    <div class="flex flex-col h-screen items-center w-full mb-50">
+    <div class="flex flex-col h-screen items-center w-full">
         <!-- Header -->
         <div class="py-5 mt-2 h-12 w-full">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                <div class="bg-white-500 overflow-hidden shadow-2xl sm:rounded-lg">
+                <div class="flex w-full justify-start mb-5">
                     <h2 class="py-2 text-lg">
                         {{ __('Create New Event')}}
                     </h2>
+                </div>
+                <div class="flex flex-col bg-white overflow-hidden shadow-2xl sm:rounded-lg">
                     <form method="POST" action="{{ route('create.event') }}">
                         @csrf
 
                         <!-- Event Details -->
-                        <div class="flex flex-row h-1/5 w-full gap-10 p-5">
+                        <div class="flex flex-row h-4/6 w-full gap-10 p-5 mt-50">
                             <!-- Left -->
                             <div class="flex flex-col items-center justify-center w-1/2 gap-5">
                                 <div class="flex flex-col w-96">
@@ -22,21 +24,23 @@
                                     <label for="description">Description</label>
                                     <input type="text" name="description" placeholder="Description" class="outline-none border-white shadow-2xl">
                                 </div>
-                                <div id="contestant-fields-container" class="flex flex-col items-center justify-center mx-auto">
+                                <div id="contestant-fields-container" class="flex flex-col items-center justify-center mx-auto mt-5">
                                     <!-- Contestant fields will be added here dynamically -->
                                 </div>
                                 <div class="flex flex-row items-center justify-center">
-                                    <button type="button" id="add-contestant-btn" class="outline-none border-0 bg-green-700 text-customWhite h-10 w-40 rounded">
+                                    <button type="button" id="add-contestant-btn" class="outline-none border-0 bg-white text-blue-500 h-10 w-32 rounded">
                                         Add Contestant
                                     </button>
                                 </div>
-                                <div id="criteria-fields-container" class="flex flex-col items-center justify-center mx-auto">
-                                    <!-- Criteria fields will be added here dynamically -->
-                                </div>
-                                <div class="flex flex-row">
-                                    <button type="button" id="add-criteria-btn" class="outline-none border-0 bg-purple-700 text-customWhite h-10 w-40 rounded">
-                                        Add Criteria
-                                    </button>
+                                <div id="add-criteria-section" class="flex flex-col w-5/6 gap-10 p-5 mt-50">
+                                    <div id="criteria-fields-container" class="flex flex-wrap items-center justify-center">
+                                        <!-- Criteria fields will be added here dynamically -->
+                                    </div>
+                                    <div class="flex flex-row items-center justify-center">
+                                        <button type="button" id="add-criteria-btn" class="outline-none border-0 bg-white text-blue-500 h-10 w-32 rounded">
+                                            Add Criteria
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                             <!-- Right -->
@@ -49,20 +53,20 @@
                                     <label for="location">Location</label>
                                     <input type="text" name="location" placeholder="Location" class="outline-none border-white shadow-2xl">
                                 </div>
-                                <div id="judge-fields-container" class="flex flex-col items-center justify-center bg-blue-500">
+                                <div id="judge-fields-container" class="flex flex-col items-center justify-center mt-5">
                                         <!-- Judge fields will be added here dynamically -->
                                 </div>
                                 <div class="flex flex-row items-center justify-center">
-                                        <button type="button" id="add-judge-btn" class="outline-none border-0 bg-green-700 text-customWhite h-10 w-32 rounded">
+                                        <button type="button" id="add-judge-btn" class="outline-none border-0 bg-white text-blue-500 h-10 w-32 rounded">
                                             Add Judge
                                         </button>
                                 </div>
+                                <div class="flex items-center justify-center">
+                                    <button class="outline-none border-0 bg-blue-700 text-white h-10 w-32 rounded">
+                                        {{ __('Save Event') }}
+                                    </button>                                    
+                                </div>
                             </div>
-                        </div>
-                        <div class="">
-                            <button class="outline-none border-0 bg-blue-700 text-customWhite h-10 w-32 rounded">
-                                {{ __('Save Event') }}
-                            </button>
                         </div>
                     </form>
                 </div>
@@ -93,7 +97,7 @@
                         </div>
                         <div class="flex flex-col w-full mx-auto">
                             <label for="password[${judgeIndex}]">Password</label>
-                            <input type="text" name="password[${judgeIndex}]" placeholder="Password" class="outline-none border-white shadow-sm ">
+                            <input type="text" name="password[${judgeIndex}]" placeholder="Password" class="outline-none border-white shadow-2xl">
                         </div>
                     </div>
                 `;
@@ -104,7 +108,7 @@
             addContestantBtn.addEventListener('click', function() {
                 const contestantFields = document.createElement('div');
                 contestantFields.innerHTML = `
-                    <div class="flex flex-row w-1/2 gap-5 mb-5 mx-auto">
+                    <div class="flex flex-row w-1/2 gap-5 mb-5">
                         <div class="flex flex-col w-96">
                             <label for="fullname[${contestantIndex}]">Contestant Name</label>
                             <input type="text" name="fullname[${contestantIndex}]" placeholder="Add Contestant Name" class="outline-none border-white shadow-sm">
@@ -119,7 +123,7 @@
             addCriteriaBtn.addEventListener('click', function() {
                 const criteriaFields = document.createElement('div');
                 criteriaFields.innerHTML = `
-                    <div class="flex flex-row w-1/2 gap-5 mb-5 mx-auto">
+                    <div class="flex flex-row w-full gap-5 mb-5">
                         <div class="flex flex-col w-96">
                             <label for="criteria[${criteriaIndex}]">Criteria</label>
                             <input type="text" name="criteria[${criteriaIndex}]" placeholder="Add Criteria" class="outline-none border-white shadow-2xl">

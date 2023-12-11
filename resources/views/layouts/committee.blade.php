@@ -56,7 +56,7 @@
         <!-- Main Page -->
         <main class="flex-1 overflow-y-auto">
             <!-- Top bar -->
-            <nav class="bg-white-200 shadow-lg">
+            <nav class="bg-gray-100 shadow-lg">
                 <div class="mx-auto px-2 sm:px-6 lg:px-8">
                     <div class="relative flex items-center justify-between h-16 w-90">
                         <!-- Hello welcome back message -->
@@ -101,7 +101,7 @@
                 </div>
             </nav>
             
-            <div class="h-screen">
+            <div class="h-screen bg-gray-100">
                 {{ $slot }}
             </div>
         </main>

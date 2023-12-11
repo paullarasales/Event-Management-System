@@ -65,4 +65,8 @@ class Admincontroller extends Controller
     public function event() {
         return view('admin.event');
     }
+
+    public function testing() {
+        return view('auth.newlogin');
+    }
 }

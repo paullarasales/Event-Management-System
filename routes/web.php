@@ -24,7 +24,7 @@ Route::get('/', function() {
 
 
 
-
+Route::get('/testing', [AdminController::class, 'testing']);
 
 Route::get('/dashboard', [AdminController::class, 'index'])->middleware(['auth'])->name('home');
 
