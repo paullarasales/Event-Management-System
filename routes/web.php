@@ -61,6 +61,10 @@ Route::post('/committee/login', [CommitteeController::class, 'login']);
 Route::get('/committee/dashboard', [CommitteeController::class, 'dashboard'])->middleware(['auth', 'committee'])->name('committee.dashboard');
 // Route::get('/committee/home', [CommitteeController::class, 'overview'])->middleware(['auth'])->name('committee.home');
 
-Route::post('/judge/login', [JudgeDashboardController::class, 'judgeLogin'])->name('judge.login');
-Route::get('/judge/dashboard', [JudgeDashboardController::class, 'dashboard'])->name('judge.dashboard');
+Route::post('/judge/login', [JudgeDashboardController::class, 'judgeLogin'])
+    ->name('judge.login');
+Route::get('/judge/dashboard', [JudgeDashboardController::class, 'dashboard'])
+    ->name('judge.dashboard');
+Route::post('/judge/submit-grades/{contestant}', [JudgeDashboardController::class, 'submitGrades'])
+    ->name('judge.submitGrades');
 require __DIR__.'/auth.php';

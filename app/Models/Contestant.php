@@ -13,4 +13,8 @@ class Contestant extends Model
         'event_id',
         'fullname',
     ];
+
+    public function grades() {
+        return $this->hasMany(Grade::class, 'contestant_id');
+    }
 }
