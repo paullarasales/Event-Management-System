@@ -50,6 +50,11 @@
                             {{ __('Event') }}
                     </x-side-nav-link>
                 </div>
+                <div class="inline-flex gap-2">
+                    <x-side-nav-link href="{{ route('committee.showResult') }}" :active="request()->routeIs('committee.showResult')">
+                        {{ __('View Results') }}
+                    </x-side-nav-link>
+                </div>
             </nav>
         </aside>
 

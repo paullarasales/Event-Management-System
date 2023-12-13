@@ -12,10 +12,17 @@ class Criteria extends Model
     protected $fillable = [
         'event_id',
         'judge_id',
-        'criteria'
+        'criteria',
+        'points'
     ];
 
     public function event() {
         return $this->belongsTo(Event::class);
     }
+
+    public function judge() {
+        return $this->belongsTo(Judge::class);
+    }
+
+    
 }

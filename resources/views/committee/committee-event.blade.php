@@ -123,10 +123,14 @@
             addCriteriaBtn.addEventListener('click', function() {
                 const criteriaFields = document.createElement('div');
                 criteriaFields.innerHTML = `
-                    <div class="flex flex-row w-full gap-5 mb-5">
+                    <div class="flex flex-col w-full gap-5 mb-5">
                         <div class="flex flex-col w-96">
                             <label for="criteria[${criteriaIndex}]">Criteria</label>
                             <input type="text" name="criteria[${criteriaIndex}]" placeholder="Add Criteria" class="outline-none border-white shadow-2xl">
+                        </div>
+                        <div class="flex flex-col w-96">
+                            <label for="points[${criteriaIndex}]">Criteria</label>
+                            <input type="text" name="points[${criteriaIndex}]" placeholder="Add Points" class="outline-none border-white shadow-2xl">
                         </div>
                     </div>
                 `;

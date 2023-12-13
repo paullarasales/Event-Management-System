@@ -24,7 +24,7 @@ class Admincontroller extends Controller
             } else if ($usertype == 'admin') {
                 $users = User::all();
 
-                return view('admin.adminpanel', ['users' => $users]); // Pass user data to the view
+                return view('admin.adminpanel', ['users' => $users]);
             }
         }
 

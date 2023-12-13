@@ -40,14 +40,15 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/contestant', [AdminController::class, 'contestant'])->middleware('auth')->name('admin.contestant');
 });
 
-Route::get('/committee/overview', [EventController::class, 'showEvents'])->middleware('auth')->name('committee.overview');
+Route::get('/committee/showResult', [CommitteeController::class, 'showResult'])->name('committee.showResult');
 
+
+Route::get('/committee/overview', [EventController::class, 'showEvents'])->middleware('auth')->name('committee.overview');
 Route::get('/committee/event', [CommitteeController::class, 'createEvent'])->middleware('auth')->name('committee.event');
 Route::match(['get', 'post'], '/create/event', [EventController::class, 'create'])->middleware('auth')->name('create.event');
 Route::match(['get', 'post'], '/committee/register', [AdminController::class, 'create'])->middleware('auth')->name('committee.create');
 Route::match(['get', 'post'], '/judge/create', [AdminController::class, 'createJudge'])->middleware('auth')->name('judge.create');
 Route::match(['get', 'post'], '/contestant/create', [AdminController::class, 'createContestant'])->middleware(['auth', 'admin'])->name('contestant.create');
-
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

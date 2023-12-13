@@ -33,6 +33,7 @@ class EventController extends Controller
             $criteriaModel = new Criteria([
                 'event_id' => $event->id,
                 'criteria' => $criteria,
+                'points' => $request->input("points.$index"),
             ]);
             $judge->criteria()->save($criteriaModel);
         }

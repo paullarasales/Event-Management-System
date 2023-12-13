@@ -19,7 +19,7 @@
                 @foreach ($event->criteria as $criteria)
                     <div>
                         <label for="grades[{{ $criteria->id }}]">{{ $criteria->criteria }}:</label>
-                        <input type="number" name="grades[{{ $criteria->id }}]" step="0.1" min="0" max="10" required>
+                        <input type="number" name="grades[{{ $criteria->id }}]" required>
                     </div>
                 @endforeach
                 
@@ -27,6 +27,5 @@
             </form>
         </div>
         @endforeach
-
 </body>
 </html>

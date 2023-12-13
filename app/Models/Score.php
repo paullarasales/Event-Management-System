@@ -18,7 +18,6 @@ class Score extends Model
         'criterion1_score',
         'criterion2_score',
         'criterion3_score',
-        // ... add more fields for additional criteria ...
     ];
 
     public function event()
