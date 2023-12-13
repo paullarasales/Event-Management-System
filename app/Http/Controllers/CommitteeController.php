@@ -29,8 +29,7 @@ class CommitteeController extends Controller
         return view('committee.committee-event', compact(['judges', 'contestants', 'events']));
     }
 
-    public function showResult()
-    {
+    public function showResult() {
         $events = Event::with(['contestants.grades', 'criteria'])->get();
 
         return view('committee.committee-event_result', compact('events'));

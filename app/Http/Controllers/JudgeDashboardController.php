@@ -41,12 +41,7 @@ class JudgeDashboardController extends Controller
         return view('judge.dashboard', compact('event', 'criterias', 'contestants'));
     }
 
-    public function submitGrades(Request $request, Contestant $contestant)
-    {
-        $request->validate([
-            'grades.*' => 'required|numeric|min:0|max:10',
-        ]);
-
+    public function submitGrades(Request $request, Contestant $contestant) {
         $judge = Auth::guard('judge')->user();
         $event = $judge->event;
 
@@ -65,5 +60,6 @@ class JudgeDashboardController extends Controller
 
         return redirect()->back()->with('success', 'Grades submitted successfully');
     }
+
     
 }

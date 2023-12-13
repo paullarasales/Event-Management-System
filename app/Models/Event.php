@@ -30,4 +30,15 @@ class Event extends Model
     public function criteria() {
         return $this->hasMany(Criteria::class);
     }
+
+    public function rankedContestants()
+    {
+        return $this->contestants()
+            ->selectRaw('contestants.id, contestants.fullname, AVG(grades.grade) as average_grade, contestants.event_id')
+            ->leftJoin('grades', 'contestants.id', '=', 'grades.contestant_id')
+            ->groupBy('contestants.id', 'contestants.fullname', 'contestants.event_id') // Include all non-aggregated columns
+            ->orderByDesc('average_grade')
+            ->get();
+    }
+
 }

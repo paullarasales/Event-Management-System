@@ -8,19 +8,17 @@
             <table>
                 <thead>
                     <tr>
+                        <th>Ranking</th>
                         <th>Contestant</th>
-                        @foreach($event->criteria as $criteria)
-                            <th>{{ $criteria->criteria }}</th>
-                        @endforeach
+                        <th>Average Grade</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($event->contestants as $contestant)
+                    @foreach($event->rankedContestants() as $rank => $contestant)
                         <tr>
+                            <td>#{{ $rank + 1 }}</td>
                             <td>{{ $contestant->fullname }}</td>
-                            @foreach($contestant->grades as $grade)
-                                <td>{{ $grade->grade }}</td>
-                            @endforeach
+                            <td>{{ $contestant->average_grade }}</td>
                         </tr>
                     @endforeach
                 </tbody>
