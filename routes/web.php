@@ -68,4 +68,6 @@ Route::get('/judge/dashboard', [JudgeDashboardController::class, 'dashboard'])
     ->name('judge.dashboard');
 Route::post('/judge/submit-grades/{contestant}', [JudgeDashboardController::class, 'submitGrades'])
     ->name('judge.submitGrades');
+Route::post('/judge/logout', [JudgeDashboardController::class, 'logout'])
+    ->name('judge.logout');
 require __DIR__.'/auth.php';

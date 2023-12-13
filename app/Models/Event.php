@@ -40,5 +40,4 @@ class Event extends Model
             ->orderByDesc('average_grade')
             ->get();
     }
-
 }

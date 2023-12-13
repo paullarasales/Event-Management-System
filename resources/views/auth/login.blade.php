@@ -42,7 +42,7 @@
                 <div class="flex flex-wrap items-center w-full p-4">
                     <h2 class="text-2xl text-white">Tabulation excellence isn't just a feature — it's our commitment. Elevate your experience with QuickScore, where efficiency meets simplicity.</h2>
                 </div>
-                <div class="flex items-center mt-40">
+                <div class="flex items-center mt-28">
                     <h3 class="text-sm text-white">Privacy Policy • Terms & Condition • About Us</h3>
                 </div>
             </div>

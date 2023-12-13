@@ -61,5 +61,10 @@ class JudgeDashboardController extends Controller
         return redirect()->back()->with('success', 'Grades submitted successfully');
     }
 
+    public function logout() {
+        Auth::guard('judge')->logout();
+        return redirect()->route('judge.loginForm');
+    }
+
     
 }
