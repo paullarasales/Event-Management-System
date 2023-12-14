@@ -41,6 +41,11 @@ Route::middleware(['auth', 'admin'])->group(function () {
 });
 
 Route::get('/committee/showResult', [CommitteeController::class, 'showResult'])->name('committee.showResult');
+Route::get('/cancel/event', [CommitteeController::class, 'cancelEvent'])->middleware('auth')->name('event.cancel');
+Route::resource('events', EventController::class);
+Route::get('committee/committee-panel', [EventController::class, 'index'])->name('committee.committee-panel');
+Route::delete('committee/committee-panel/{event}', [EventController::class, 'destroy'])->name('committee.committee-panel.destroy');
+
 
 
 Route::get('/committee/overview', [EventController::class, 'showEvents'])->middleware('auth')->name('committee.overview');

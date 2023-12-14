@@ -15,11 +15,14 @@ export default {
                 sans: ['Poppins', ...defaultTheme.fontFamily.sans],
             },
             colors: {
-                background: '#0000ff',
+                background: '#181D50',
                 text: '#808080'
             },
             height: {
                 95: '95.333333%'
+            },
+            margin: {
+                customleft: '400px'
             }
         },
     },

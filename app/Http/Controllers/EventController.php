@@ -10,6 +10,13 @@ use App\Models\Criteria;
 
 class EventController extends Controller
 {
+    public function index() {
+    // Logic to fetch and display a list of events
+    // For example:
+        $events = Event::all();
+        return view('committee.committee-panel', ['events' => $events]);
+    }
+
     public function create(Request $request) {
         // dd($request->all());
         $event = new Event;
@@ -49,6 +56,24 @@ class EventController extends Controller
         $event->contestants()->saveMany($contestants);
 
         return redirect()->route('committee.event');
+    }
+
+    public function destroy($eventId)
+{
+    $event = Event::find($eventId);
+
+    if ($event) {
+        $event->delete();
+        return redirect()->route('committee.committee-panel')->with('success', 'Event Deleted Successfully');
+    } else {
+        return redirect()->route('committee.committee-panel')->with('error', 'Event Not Found');
+    }
+}
+
+
+    public function show($event) {
+        $event = Event::findOrFail($event);
+        return view('events.show', compact('event'));
     }
     
 }

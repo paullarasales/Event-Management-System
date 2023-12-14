@@ -31,13 +31,12 @@ class Event extends Model
         return $this->hasMany(Criteria::class);
     }
 
-    public function rankedContestants()
-{
-    return $this->contestants()
+    public function rankedContestants() {
+        return $this->contestants()
         ->selectRaw('contestants.id, contestants.fullname, COALESCE(calculated_average, 0) as average_grade, contestants.event_id')
         ->orderByDesc('average_grade')
         ->get();
-}
+    }
 
 
 }

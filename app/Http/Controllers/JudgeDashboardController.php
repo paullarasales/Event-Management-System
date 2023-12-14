@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Log;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Criteria;
@@ -30,13 +31,12 @@ class JudgeDashboardController extends Controller
     
         $event = $judge->event;
     
-        // Check if $event is not null
         if (!$event) {
             return redirect()->route('judge.loginForm')->with('error', 'You are not associated with the event');
         }
     
-        $criterias = $event->criteria; // Use property, not method
-        $contestants = $event->contestants; // Use property, not method
+        $criterias = $event->criteria;
+        $contestants = $event->contestants;
     
         return view('judge.dashboard', compact('event', 'criterias', 'contestants'));
     }
@@ -45,7 +45,6 @@ class JudgeDashboardController extends Controller
         $judge = Auth::guard('judge')->user();
         $event = $judge->event;
     
-        // Create a new grade record for each criteria
         foreach ($event->criteria as $criteria) {
             $grade = new Grade([
                 'judge_id' => $judge->id,
@@ -58,10 +57,30 @@ class JudgeDashboardController extends Controller
             $grade->save();
         }
     
-        // Calculate and store the average grade for the contestant
+        // Debugging
+        $grades = Grade::where('contestant_id', $contestant->id)->pluck('grade')->toArray();
+        Log::info('Grades:', $grades);
+    
+        
+        $grades = array_filter($grades, function ($grade) {
+            return $grade !== null && $grade > 0;
+        });
+    
+        // Debugging
+        Log::info('Filtered Grades:', $grades);
+    
+        $averageGrade = count($grades) > 0 ? array_sum($grades) / count($grades) : 0;
+    
+        // Debugging
+        Log::info('Calculated Average: ' . $averageGrade);
+    
         $contestant->update([
-            'calculated_average' => Grade::where('contestant_id', $contestant->id)->avg('grade'),
+            'calculated_average' => $averageGrade,
         ]);
+    
+        // Debugging
+        $updatedContestant = Contestant::find($contestant->id);
+        Log::info('Updated Contestant:', $updatedContestant->toArray());
     
         return redirect()->back()->with('success', 'Grades submitted successfully');
     }
