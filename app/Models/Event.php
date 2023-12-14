@@ -32,12 +32,12 @@ class Event extends Model
     }
 
     public function rankedContestants()
-    {
-        return $this->contestants()
-            ->selectRaw('contestants.id, contestants.fullname, AVG(grades.grade) as average_grade, contestants.event_id')
-            ->leftJoin('grades', 'contestants.id', '=', 'grades.contestant_id')
-            ->groupBy('contestants.id', 'contestants.fullname', 'contestants.event_id') // Include all non-aggregated columns
-            ->orderByDesc('average_grade')
-            ->get();
-    }
+{
+    return $this->contestants()
+        ->selectRaw('contestants.id, contestants.fullname, COALESCE(calculated_average, 0) as average_grade, contestants.event_id')
+        ->orderByDesc('average_grade')
+        ->get();
+}
+
+
 }

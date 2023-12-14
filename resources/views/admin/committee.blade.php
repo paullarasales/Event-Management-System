@@ -41,12 +41,12 @@
                 <!-- button -->
                 <div class="flex flex-row h-100 gap-10">
                     <div class="">
-                        <button class="outline-none border-0 bg-blue-700 text-customWhite h-10 w-32 rounded">
+                        <button class="outline-none border-0 bg-blue-700 text-white h-10 w-32 rounded">
                             {{ __('Save') }}
                         </button>
                     </div>
                     <div class="">
-                        <button class="outline-none border-0 bg-red-700 text-customWhite h-10 w-32 rounded">
+                        <button class="outline-none border-0 bg-red-700 text-white h-10 w-32 rounded">
                             <a href="{{ route('committee.cancel') }}">
                                 {{ __('Cancel') }}
                             </a>

@@ -44,7 +44,7 @@ class JudgeDashboardController extends Controller
     public function submitGrades(Request $request, Contestant $contestant) {
         $judge = Auth::guard('judge')->user();
         $event = $judge->event;
-
+    
         // Create a new grade record for each criteria
         foreach ($event->criteria as $criteria) {
             $grade = new Grade([
@@ -54,10 +54,15 @@ class JudgeDashboardController extends Controller
                 'criteria_id' => $criteria->id,
                 'grade' => $request->input("grades.{$criteria->id}"),
             ]);
-
+    
             $grade->save();
         }
-
+    
+        // Calculate and store the average grade for the contestant
+        $contestant->update([
+            'calculated_average' => Grade::where('contestant_id', $contestant->id)->avg('grade'),
+        ]);
+    
         return redirect()->back()->with('success', 'Grades submitted successfully');
     }
 

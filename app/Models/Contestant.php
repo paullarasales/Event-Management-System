@@ -12,6 +12,7 @@ class Contestant extends Model
     protected $fillable = [
         'event_id',
         'fullname',
+        'calculated_average'
     ];
 
     public function grades() {

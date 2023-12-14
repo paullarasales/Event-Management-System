@@ -29,7 +29,7 @@ class EventController extends Controller
             $event->judges()->save($judge);
         }
 
-        foreach ($request->input("criteria") as $criteria) {
+        foreach ($request->input("criteria") as $index => $criteria) {
             $criteriaModel = new Criteria([
                 'event_id' => $event->id,
                 'criteria' => $criteria,
@@ -50,4 +50,5 @@ class EventController extends Controller
 
         return redirect()->route('committee.event');
     }
+    
 }

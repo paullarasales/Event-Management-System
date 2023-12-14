@@ -14,7 +14,8 @@ class Grade extends Model
         'contestant_id',
         'criteria_id',
         'event_id',
-        'grade'
+        'grade',
+        'calculated_average',
     ];
 
     public function judge() {

@@ -30,14 +30,30 @@
         }
 
         header {
-            /* background-color: #e74c3c; Red background for the header */
+            display: flex;
+            justify-content: space-between;
             padding: 1rem;
             text-align: center;
-            color: white;
+            color: #333; /* Set text color */
+        }
+
+        header p {
+            margin: 0;
+            color: #000; /* Set text color to white */
+            font-size: 25px;
+        }
+
+        header .logout {
+            color: #fff; /* Set text color to white */
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            background: rgb(6, 6, 213);
         }
 
         .contestant-container {
-            background-color: #fff; /* White background for each contestant */
+            background-color: #fff;
             margin: 1rem 0;
             padding: 1rem;
             border-radius: 8px;
@@ -52,16 +68,13 @@
         }
 
         button {
-            background-color: #3498db; /* Blue button background */
-            color: #fff;
+            color: #fff; /* Set text color to white */
             padding: 0.5rem 1rem;
-            border: none;
+            border: 1px solid black;
             border-radius: 4px;
             cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #2980b9; /* Darker blue on hover */
+            transition: background-color 0.3s ease;
+            background-color: green;
         }
     </style>
 
@@ -71,10 +84,10 @@
 <body>
     <div class="container">
         <header>
-            <p class="text-black">Judge: {{ Auth::guard('judge')->user()->username }}</p>
+            <p>Judge: {{ Auth::guard('judge')->user()->username }}</p>
             <form action="{{ route('judge.logout') }}" method="post">
                 @csrf
-                <button type="submit" class="">Logout</button>
+                <button type="submit" class="logout">Logout</button>
             </form>
         </header>
 
@@ -86,7 +99,7 @@
                 <div class="grades-container">
                     @foreach ($event->criteria as $criteria)
                         <div>
-                            <span>{{ $criteria->points }}</span>
+                            <span>{{ $criteria->points }} Points</span>
                             <label for="grades[{{ $criteria->id }}]">{{ $criteria->criteria }}:</label>
                             <input type="text" name="grades[{{ $criteria->id }}]" required>
                         </div>
