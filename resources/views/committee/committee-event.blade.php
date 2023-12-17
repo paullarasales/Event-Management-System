@@ -115,7 +115,7 @@
                 contestantFields.innerHTML = `
                     <div class="flex flex-row w-1/2 gap-5 mb-5">
                         <div class="flex flex-col flex-wrap w-96">
-                            <label for="fullname[${contestantIndex}]">Contestant Name</label>
+                            <label for="fullname[${contestantIndex}]">Contestant/Group Name</label>
                             <input type="text" name="fullname[${contestantIndex}]" placeholder="Add Contestant Name" class="outline-none border-blue-500 shadow-sm">
                         </div>
                     </div>

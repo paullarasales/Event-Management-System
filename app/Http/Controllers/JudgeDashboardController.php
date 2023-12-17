@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Models\Criteria;
 use App\Models\Contestant;
 use App\Models\Grade;
 
